@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  web:
+    build: ./web
+    ports:
+      - "80:5000"
+  factorial:
+    build: ./factorial
+    # ports:
+    #   - "500:5000"
+  square:
+    build: ./square
+    # ports:
+    #   - "5001:5000"
