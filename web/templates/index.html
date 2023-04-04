@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TekSystems</title>
+  </head>
+  <body>
+    <h1>Demo calculator</h1>
+    <button id="api1-btn">factorial</button>
+    <button id="api2-btn">square</button>
+    <div id="result-div"></div>
+    <script>
+      const api1Btn = document.getElementById('api1-btn');
+      const api2Btn = document.getElementById('api2-btn');
+      const resultDiv = document.getElementById('result-div');
+      api1Btn.addEventListener('click', () => {
+        fetch('/api1')
+          .then(response => response.json())
+          .then(result => {
+            const pre = document.createElement('pre');
+            pre.textContent = JSON.stringify(result, null, 2);
+            resultDiv.appendChild(pre);
+          });
+      });
+      api2Btn.addEventListener('click', () => {
+        fetch('/api2')
+          .then(response => response.json())
+          .then(result => {
+            const pre = document.createElement('pre');
+            pre.textContent = JSON.stringify(result, null, 2);
+            resultDiv.appendChild(pre);
+          });
+      });
+    </script>
+  </body>
+</html>
